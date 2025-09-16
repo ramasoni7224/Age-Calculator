@@ -1,0 +1,237 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body {
+    background-color: #e0e5ec;
+    color: #1f2937;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    background: #e0e5ec;
+    border-radius: 50px;
+    box-shadow: 6px 6px 12px #a3b1c6,
+                -6px -6px 12px #ffffff;
+    cursor: pointer;
+    padding: 2px;
+    position: relative;
+}
+
+.toggle-label .sun, .toggle-label .moon {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+.toggle-label::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: #e0e5ec;
+    border-radius: 50%;
+    box-shadow: 4px 4px 6px #a3b1c6,
+                -4px -4px 6px #ffffff;
+    transition: 0.3s;
+}
+
+#toggle-mode:checked + .toggle-label::before {
+    transform: translateX(30px);
+}
+
+/* Container */
+.container {
+    background-color: #e0e5ec;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    padding: 24px;
+    box-shadow: 6px 6px 12px #a3b1c6,
+                -6px -6px 12px #ffffff;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #111827;
+}
+
+/* Input group */
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+/* Neumorphic input */
+input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #e0e5ec;
+    box-shadow: inset 4px 4px 6px #a3b1c6,
+                inset -4px -4px 6px #ffffff;
+    font-size: 16px;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 4px #a3b1c6,
+                inset -2px -2px 4px #ffffff;
+}
+
+/* Neumorphic button */
+button {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #e0e5ec;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 4px 4px 6px #a3b1c6,
+                -4px -4px 6px #ffffff;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    box-shadow: inset 4px 4px 6px #a3b1c6,
+                inset -4px -4px 6px #ffffff;
+}
+
+button:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+    background: #d1d9e6;
+}
+
+/* Results */
+.results {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #d1d5db;
+    display: none;
+}
+
+.results h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111827;
+}
+
+/* Result item animation */
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #e0e5ec;
+    box-shadow: 4px 4px 6px #a3b1c6,
+                -4px -4px 6px #ffffff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.result-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result-label {
+    color: #6b7280;
+}
+
+.result-value {
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Dark Mode */
+body.dark {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+body.dark .container,
+body.dark input[type="date"],
+body.dark .result-item,
+body.dark button {
+    background: #1f2937;
+    box-shadow: 6px 6px 12px #111827,
+                -6px -6px 12px #374151;
+    color: #f3f4f6;
+}
+
+body.dark .toggle-label {
+    background: #1f2937;
+}
+
+body.dark .toggle-label::before {
+    background: #1f2937;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .container {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

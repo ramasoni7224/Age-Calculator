@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Light/Dark Toggle -->
+    <div class="theme-toggle">
+        <input type="checkbox" id="toggle-mode">
+        <label for="toggle-mode" class="toggle-label">
+            <span class="sun">☀️</span>
+            <span class="moon">🌙</span>
+        </label>
+    </div>
+
+    <div class="container" id="calculator-container">
+        <h1 id="calculator-title">Age Calculator</h1>
+        
+        <div class="input-group">
+            <label for="birthdate">Enter your birth date</label>
+            <input type="date" id="birthdate" max="">
+        </div>
+        
+        <button id="calculate-btn" disabled>Calculate Age</button>
+        
+        <div class="results" id="results">
+            <h2>Your Age:</h2>
+            <div class="result-item">
+                <span class="result-label">Age:</span>
+                <span class="result-value" id="years-months-days"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">or</span>
+                <span class="result-value" id="months-days"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">or</span>
+                <span class="result-value" id="weeks-days"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">or</span>
+                <span class="result-value" id="days"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">or</span>
+                <span class="result-value" id="hours"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">or</span>
+                <span class="result-value" id="minutes"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">or</span>
+                <span class="result-value" id="seconds"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
